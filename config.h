@@ -27,7 +27,7 @@
 // ===================
 // Supported concurrency control algorithms: WAIT_DIE, NO_WAIT, TICTOC, F_ONE,
 // MAAT
-#define CC_ALG WAIT_DIE
+#define CC_ALG TICTOC
 #define ISOLATION_LEVEL SERIALIZABLE
 
 // KEY_ORDER: when set to true, each transaction accesses tuples in the primary
@@ -76,8 +76,8 @@
 #define READ_INTENSITY_THRESH 0.8
 
 // [Caching in TicToc]
-#define ENABLE_LOCAL_CACHING false
-#define CACHING_POLICY ALWAYS_CHECK
+#define ENABLE_LOCAL_CACHING true
+#define CACHING_POLICY READ_INTENSIVE
 #define RO_LEASE false
 #define LOCAL_CACHE_SIZE (1024 * 1024) // in KB
 #define REUSE_FRESH_DATA false
@@ -142,11 +142,11 @@
 // TODO. REPLICATE_ITEM_TABLE = false only works for TICTOC.
 #define REPLICATE_ITEM_TABLE true
 
-#define PERC_PAYMENT 0.5 // 0.43
-#define PERC_NEWORDER 0.5 // 0.45
-#define PERC_ORDERSTATUS 0 // 0.04
-#define PERC_DELIVERY 0 // 0.04
-#define PERC_STOCKLEVEL 0 // 0.04
+#define PERC_PAYMENT 0.5        // 0.43
+#define PERC_NEWORDER 0.5       // 0.45
+#define PERC_ORDERSTATUS 0      // 0.04
+#define PERC_DELIVERY 0         // 0.04
+#define PERC_STOCKLEVEL 0       // 0.04
 #define PAYMENT_REMOTE_PERC 15  // 15% customers are remote
 #define NEW_ORDER_REMOTE_PERC 1 // 1% order lines are remote
 #define FIRSTNAME_MINLEN 8
