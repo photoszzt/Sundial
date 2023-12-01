@@ -5,7 +5,7 @@
 
 // CPU_FREQ is used to get accurate timing info
 // We assume all nodes have the same CPU frequency.
-#define CPU_FREQ 2.45 // in GHz/s
+#define CPU_FREQ 2.3 // in GHz/s
 
 // warmup time in seconds
 #define WARMUP 0
@@ -142,11 +142,11 @@
 // TODO. REPLICATE_ITEM_TABLE = false only works for TICTOC.
 #define REPLICATE_ITEM_TABLE true
 
-#define PERC_PAYMENT 0.5
-#define PERC_NEWORDER 0.5
-#define PERC_ORDERSTATUS 0
-#define PERC_DELIVERY 0
-#define PERC_STOCKLEVEL 0
+#define PERC_PAYMENT 0.5 // 0.43
+#define PERC_NEWORDER 0.5 // 0.45
+#define PERC_ORDERSTATUS 0 // 0.04
+#define PERC_DELIVERY 0 // 0.04
+#define PERC_STOCKLEVEL 0 // 0.04
 #define PAYMENT_REMOTE_PERC 15  // 15% customers are remote
 #define NEW_ORDER_REMOTE_PERC 1 // 1% order lines are remote
 #define FIRSTNAME_MINLEN 8
