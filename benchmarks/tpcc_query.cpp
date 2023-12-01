@@ -41,7 +41,7 @@ QueryPaymentTPCC::QueryPaymentTPCC()
 
     d_id = URand(1, DIST_PER_WARE);
     uint32_t x = URand(1, 100);
-    uint32_t y = URand(1, 100);
+    // uint32_t y = URand(1, 100);
 
     if(x >= g_payment_remote_perc) {
         // home warehouse
@@ -57,15 +57,15 @@ QueryPaymentTPCC::QueryPaymentTPCC()
         } else
             c_w_id = w_id;
     }
-    if(y <= 60) {
-        // by last name
-        by_last_name = true;
-        Lastname( NURand(255, 0, 999), c_last );
-    } else {
+    // if(y <= 60) {
+    //     // by last name
+    //     by_last_name = true;
+    //     Lastname( NURand(255, 0, 999), c_last );
+    // } else {
         // by cust id
         by_last_name = false;
         c_id = NURand(1023, 1, g_cust_per_dist);
-    }
+    // }
     h_amount = URand(1, 5000);
 }
 
