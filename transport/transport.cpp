@@ -27,6 +27,7 @@ Transport::Transport(uint32_t transport_id)
     _transport_id = transport_id;
 
     read_urls();
+    fprintf(stderr, "g_num_nodes: %d\n", g_num_nodes);
     if (g_num_nodes == 1)
       return;
     _local_info = new addrinfo [g_num_nodes];

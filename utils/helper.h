@@ -143,7 +143,7 @@
       new(name) type(__VA_ARGS__); }
 
 #define FREE(block, size) free(block)
-#define DELETE(type, block) { delete block; }
+#define DELETE(type, block) { block->~type(); free(block); }
 
 
 #define ALIGNED(x) __attribute__ ((aligned(x)))
