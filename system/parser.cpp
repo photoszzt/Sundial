@@ -44,7 +44,6 @@ void print_usage() {
   printf("\t-DiINT      ; NUM_INPUT_THREADS (NUM_OUTPUT_THREADS)\n");
   printf("\t-Df STRING  ; ifconfig file\n");
   printf("\t-DcINT      ; LOCAL_CACHE_SIZE\n");
-  printf("\t-DnINT      ; NUM NODE");
   printf("\n");
 }
 
@@ -136,8 +135,6 @@ void parser(int argc, char *argv[]) {
         strcpy(ifconfig_file, argv[++i]);
       else if (argv[i][2] == 'c')
         g_local_cache_size = atoi(&argv[i][3]);
-      else if (argv[i][2] == 'n')
-        g_num_nodes = atoi(&argv[i][3]);
       else
         assert(false);
     } else if (argv[i][1] == 'o') {
