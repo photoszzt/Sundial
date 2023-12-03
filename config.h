@@ -5,7 +5,7 @@
 
 // CPU_FREQ is used to get accurate timing info
 // We assume all nodes have the same CPU frequency.
-#define CPU_FREQ 2.3 // in GHz/s
+#define CPU_FREQ 2.2 // in GHz/s
 
 // warmup time in seconds
 #define WARMUP 0
