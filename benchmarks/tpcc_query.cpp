@@ -87,7 +87,7 @@ QueryNewOrderTPCC::QueryNewOrderTPCC()
 
     d_id = URand(1, DIST_PER_WARE);
     c_id = NURand(1023, 1, g_cust_per_dist);
-    uint32_t rbk = URand(1, 100);
+    // uint32_t rbk = URand(1, 100);
     ol_cnt = URand(5, 15);
     o_entry_d = 2013;
     items = (Item_no *) _mm_malloc(sizeof(Item_no) * ol_cnt, 64);
