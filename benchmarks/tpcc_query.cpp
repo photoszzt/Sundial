@@ -96,8 +96,8 @@ QueryNewOrderTPCC::QueryNewOrderTPCC()
     for (uint32_t oid = 0; oid < ol_cnt; oid ++) {
         items[oid].ol_i_id = NURand(8191, 1, g_max_items);
         // handle roll back. invalid ol_i_id.
-        if (oid == ol_cnt - 1 && rbk == 1)
-            items[oid].ol_i_id = 0;
+        // if (oid == ol_cnt - 1 && rbk == 1)
+        //     items[oid].ol_i_id = 0;
         uint32_t x = URand(1, 100);
         if (x > g_new_order_remote_perc || (g_num_wh == 1 && g_num_nodes == 1))
             items[oid].ol_supply_w_id = w_id;
