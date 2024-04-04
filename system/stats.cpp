@@ -116,11 +116,15 @@ void Stats::output(std::ostream * os)
 
     uint64_t total_num_commits = 0;
     double total_run_time = 0;
+    double max_run_time = 0;
     for (uint32_t tid = 0; tid < g_total_num_threads; tid ++) {
         total_num_commits += _stats[tid]->_int_stats[STAT_num_commits];
         total_run_time += _stats[tid]->_float_stats[STAT_run_time];
+        max_run_time = std::max(max_run_time, _stats[tid]->_float_stats[STAT_run_time]);
     }
 
+    out << "    " << setw(30) << left << "TotalCmtCount:" << total_num_commits << ", Max_thread_time:"
+        << max_run_time / BILLION << endl;
     assert(total_num_commits > 0);
     out << "=Worker Thread=" << endl;
     out << "    " << setw(30) << left << "Throughput:"
