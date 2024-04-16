@@ -1,10 +1,17 @@
 #include "log.h"
 #include "manager.h"
+#if USE_CXLALLOC
+#include "cxlalloc.h"
+#endif
 
 LogManager::LogManager()
 {
     _buffer_size = 64 * 1024 * 1024;
+#if USE_CXLALLOC
+    _buffer = (char*)cxlalloc_malloc(_buffer_size);
+#else
     _buffer = new char[_buffer_size]; // 64 MB
+#endif
     _lsn = 0;
 }
 

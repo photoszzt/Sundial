@@ -27,7 +27,7 @@
 // ===================
 // Supported concurrency control algorithms: WAIT_DIE, NO_WAIT, TICTOC, F_ONE,
 // MAAT
-#define CC_ALG TICTOC
+#define CC_ALG WAIT_DIE
 #define ISOLATION_LEVEL SERIALIZABLE
 
 // KEY_ORDER: when set to true, each transaction accesses tuples in the primary
@@ -105,7 +105,7 @@
 ////////////////////////////////////////////////////////////////////////
 // Logging
 ////////////////////////////////////////////////////////////////////////
-#define LOG_ENABLE false
+#define LOG_ENABLE true
 #define USE_CXLALLOC false
 #define LOG_COMMAND false
 #define LOG_REDO false

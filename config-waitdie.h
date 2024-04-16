@@ -106,6 +106,7 @@
 // Logging
 ////////////////////////////////////////////////////////////////////////
 #define LOG_ENABLE false
+#define USE_CXLALLOC false
 #define LOG_COMMAND false
 #define LOG_REDO false
 #define LOG_BATCH_TIME 10 // in ms
