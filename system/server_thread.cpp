@@ -16,6 +16,9 @@
 #if CC_ALG == MAAT
 #include "maat_manager.h"
 #endif
+#if USE_CXLALLOC
+#include "cxlalloc.h"
+#endif
 
 #define DEBUG_INFO_DELAY_SEC 3
 
@@ -43,6 +46,10 @@ ServerThread::ServerThread(uint64_t thd_id)
 
 // Worker thread
 RC ServerThread::run() {
+#if USE_CXLALLOC
+    int total_threads = g_num_worker_threads * g_num_nodes  + g_num_nodes;
+    cxlalloc_init("SD", 1024*1024*1024*2, get_thd_id(), total_threads, g_node_id, g_num_nodes);
+#endif
     glob_manager->init_rand( get_thd_id() );
     glob_manager->set_thd_id( get_thd_id() );
     assert( glob_manager->get_thd_id() == get_thd_id() );

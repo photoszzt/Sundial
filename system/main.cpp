@@ -11,6 +11,9 @@
 #include "output_thread.h"
 #include "caching.h"
 #include "log.h"
+#if USE_CXLALLOC
+#include "cxlalloc.h"
+#endif
 
 void * start_thread(void *);
 
@@ -35,6 +38,11 @@ int main(int argc, char* argv[])
         transport[i]->test_connect();
 
     g_total_num_threads = g_num_worker_threads + g_num_input_threads + g_num_output_threads;
+#if USE_CXLALLOC
+    int main_tid = g_num_worker_threads * g_num_nodes + g_node_id;
+    int total_threads = g_num_worker_threads * g_num_nodes  + g_num_nodes;
+    cxlalloc_init("SD", 1024ul*1024ul*1024ul*2ul, main_tid, total_threads, g_node_id, g_num_nodes);
+#endif
 
     input_queues = new InOutQueue * [g_num_worker_threads];
     output_queues = new InOutQueue * [g_num_worker_threads];
