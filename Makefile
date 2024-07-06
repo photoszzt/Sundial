@@ -1,4 +1,4 @@
-CC=clang++-15
+CC=clang++-18
 CFLAGS=-Wall -g -std=c++11
 
 .SUFFIXES: .o .cpp .h
@@ -7,7 +7,7 @@ SRC_DIRS = ./ ./benchmarks/ ./concurrency_control/ ./storage/ ./system/ ./transp
 INCLUDE = -I. -I./benchmarks -I./concurrency_control -I./storage -I./system -I./transport -I./utils -I../../../cxl_shmem/src/cxlalloc/include/
 
 CFLAGS += $(INCLUDE) -D NOGRAPHITE=1 -O3 -g -ggdb -flto
-LDFLAGS = -Wall -L./libs -pthread -lrt -std=c++0x -O3 -ljemalloc ./../../../cxl_shmem/build_clang_release/libcxlalloc.a ./../../../cxl_shmem/build_clang_release/bin/libcxl_driver_api_byte.a -lnuma
+LDFLAGS = -Wall -L./libs -pthread -lrt -std=c++0x -O3 -ljemalloc ./../../../cxl_shmem/build_clang_release/libcxlalloc_static.a ./../../../cxl_shmem/build_clang_release/bin/libcxl_driver_api_byte.a -lnuma
 
 LDFLAGS += $(CFLAGS)
 
